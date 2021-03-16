@@ -16,6 +16,16 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+
+                <div class="card-body">
+                    <div class="alert alert-success" role="alert">
+                        <a class="navbar-brand" href="{{ url('/users') }}">
+                            Usuarios
+                        </a>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     </div>

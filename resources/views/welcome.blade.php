@@ -7,6 +7,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <!-- Styles -->
@@ -96,5 +97,12 @@
                 </div>
             </div>
         </div>
+        <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+        <script>
+            var vm = new Vue({
+                el: '#app'
+            });
+        </script>
     </body>
 </html>
