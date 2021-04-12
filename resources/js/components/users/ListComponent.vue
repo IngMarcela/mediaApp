@@ -3,6 +3,29 @@
 <script>
     export default {
         name: "ListComponent",
+        data: function() {
+            return  {
+                draft: '',
+                new_user: '',
+                users: [
+                    {
+                        description: 'Usuario A',
+                        pending: true,
+                        editing: false,
+                    },
+                    {
+                        description: 'Usuario B',
+                        pending: true,
+                        editing: false,
+                    },
+                    {
+                        description: 'Usuario C',
+                        pending: false,
+                        editing: false,
+                    }
+                ]
+            }
+        },
         methods: {
             createUser: function () {
                 this.users.push({
@@ -20,30 +43,19 @@
                 this.users.forEach( function (user) {
                     user.editing = false;
                 });
+                this.draft = user.description;
                 user.editing = true;
             },
-        },
-        data: function() {
-            return  {
-                new_user: '',
-                users: [
-                    {
-                        description: 'Usuario A',
-                        pending: true,
-                        editing: false,
-                    },
-                    {
-                        description: 'Usuario B',
-                        pending: true,
-                        editing: true,
-                    },
-                    {
-                        description: 'Usuario C',
-                        pending: false,
-                        editing: false,
-                    }
-                ]
-            }
+            updateUser: function (user) {
+                user.description = this.draft;
+                user.editing = false;
+            },
+            discardUser: function (user) {
+                user.editing = false;
+            },
+            deleteUser: function (index) {
+                this.user.splice(index, 1)
+            },
         },
     }
 </script>

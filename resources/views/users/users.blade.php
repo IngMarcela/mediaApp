@@ -12,7 +12,7 @@
 
                             <ul class="list-group tasks">
                                 <li
-                                    v-for="user in users"
+                                    v-for="(user, index) in users"
                                     class="list-group-item"
                                     :class="{editing: user.editing, completed: !user.pending}">
                                     <a @click="toggleStatus(user)" href="#">
@@ -30,7 +30,7 @@
                                                   aria-hidden="true">
                                             </span>
                                             </a>
-                                            <a href="#">
+                                            <a @click="deleteUser(user)">
                                             <span class="glyphicon glyphicon-trash"
                                                   aria-hidden="true">
                                             </span>
@@ -39,15 +39,15 @@
                                     </template>
 
                                     <template v-else>
-                                        <input type="text" v-model="user.description">
+                                        <input type="text" v-model="draft">
 
                                         <div>
-                                            <a href="#">
+                                            <a @click="updateUser(user)">
                                             <span class="glyphicon glyphicon-ok"
                                                   aria-hidden="true">
                                             </span>
                                             </a>
-                                            <a href="#">
+                                            <a @click="discardUser(user)">
                                             <span class="glyphicon glyphicon-remove"
                                                   aria-hidden="true">
                                             </span>
