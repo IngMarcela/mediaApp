@@ -58,6 +58,8 @@
                                 </li>
                             </ul>
 
+                            <p><a class="nav-link" @click="deleteCompleted">Eliminar los usuarios tachados</a></p>
+
                             <form @submit.prevent="createUser" class="new-task-form">
                                 <input v-model="new_user" type="text" class="form-control">
                                 <button class="btn btn-primary">Crear tarea</button>

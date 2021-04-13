@@ -54,7 +54,12 @@
                 user.editing = false;
             },
             deleteUser: function (index) {
-                this.user.splice(index, 1)
+                this.users.splice(index, 1)
+            },
+            deleteCompleted: function () {
+                this.users = this.users.filter(function (user) {
+                    return user.pending;
+                });
             },
         },
     }
