@@ -15,16 +15,18 @@
                                     :user="user"
                                     :index="index"
                                     :users="users"
+                                    @remove="deleteUser"
                                     inline-template>
                                     <li
                                         class="list-group-item"
-                                        :class="{editing: user.editing, completed: !user.pending}">
+                                        :class="{editing: editing, completed: !user.pending}"
+                                    >
                                         <a @click="toggleStatus" href="#">
                                             <app-icon :img="user.pending ? 'unchecked' : 'check'">
                                             </app-icon>
                                         </a>
 
-                                        <template v-if="!user.editing">
+                                        <template v-if="!editing">
                                             <span class="description">@{{user.description}}</span>
                                             <div>
                                                 <a @click="edit">

@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.EventBus = new Vue();
 
 /**
  * The following block of code may be used to automatically register your
@@ -38,3 +39,4 @@ Vue.component('app-user', UserComponent);
 const app = new Vue({
     el: '#app',
 });
+

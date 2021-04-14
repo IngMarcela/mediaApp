@@ -5,7 +5,6 @@
         name: "ListComponent",
         data: function() {
             return  {
-                draft: '',
                 new_user: '',
                 users: [
                     {
@@ -37,6 +36,9 @@
                     return user.pending;
                 });
             },
+            deleteUser: function (index) {
+                this.users.splice(index, 1);
+            }
         },
         created: function () {
             this.users.forEach(user => {
