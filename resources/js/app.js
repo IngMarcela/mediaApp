@@ -21,9 +21,13 @@ window.Vue = require('vue');
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import ListComponent from './components/users/ListComponent.vue';
+import IconComponent from './components/IconComponent.vue';
+import UserComponent from './components/users/UserComponent.vue';
 
 Vue.component('example-component', ExampleComponent);
 Vue.component('list-component', ListComponent);
+Vue.component('app-icon', IconComponent);
+Vue.component('app-user', UserComponent);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

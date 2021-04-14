@@ -11,17 +11,14 @@
                     {
                         description: 'Usuario A',
                         pending: true,
-                        editing: false,
                     },
                     {
                         description: 'Usuario B',
                         pending: true,
-                        editing: false,
                     },
                     {
                         description: 'Usuario C',
                         pending: false,
-                        editing: false,
                     }
                 ]
             }
@@ -35,32 +32,20 @@
                 });
                 this.new_user = '';
             },
-            toggleStatus: function (user) {
-                user.pending = !user.pending;
-            },
-            editUser: function (user) {
-                // permitir que solo se edite una sola vez
-                this.users.forEach( function (user) {
-                    user.editing = false;
-                });
-                this.draft = user.description;
-                user.editing = true;
-            },
-            updateUser: function (user) {
-                user.description = this.draft;
-                user.editing = false;
-            },
-            discardUser: function (user) {
-                user.editing = false;
-            },
-            deleteUser: function (index) {
-                this.users.splice(index, 1)
-            },
             deleteCompleted: function () {
                 this.users = this.users.filter(function (user) {
                     return user.pending;
                 });
             },
         },
+        created: function () {
+            this.users.forEach(user => {
+                this.$set(user, 'editing', false);
+            });
+            /*this.users.forEach(function (user) {
+                this.$set(user, 'editing', false)
+            }.bind(this));*/
+
+        }
     }
 </script>
