@@ -21,12 +21,10 @@
 </template>
 <script>
     import UserComponent from './UserComponent.vue';
-    import Dashboard from '../Dashboard.vue';
     export default {
         name: "UsersComponent",
         components: {
             'app-user' : UserComponent,
-            'dashboard': Dashboard,
         },
         created() {
             this.users.forEach((user, index) => {

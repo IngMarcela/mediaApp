@@ -8,9 +8,19 @@
                     <div class="card-header">{{ __('Usuarios') }}</div>
                     <div class="card-body">
                         <div id="app" class="container">
-                            <router-link to="/users">Usuarios</router-link>
-                            <router-link to="/inicio">prueba</router-link>
-                            <router-view></router-view>
+
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <router-link class="nav-link" active-class="active" to="/users">Usuarios</router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link class="nav-link" active-class="active" to="/inicio">prueba</router-link>
+                                </li>
+                            </ul>
+
+                            <keep-alive>
+                                <router-view></router-view>
+                            </keep-alive>
                         </div>
                     </div>
                 </div>
