@@ -21,14 +21,11 @@ window.EventBus = new Vue();
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 import ExampleComponent from './components/ExampleComponent.vue';
-import ListComponent from './components/users/ListComponent.vue';
-import IconComponent from './components/IconComponent.vue';
-import UserComponent from './components/users/UserComponent.vue';
+import UsersComponent from './components/users/UsersComponent.vue';
+import router from './routes'
 
 Vue.component('example-component', ExampleComponent);
-Vue.component('list-component', ListComponent);
-Vue.component('app-icon', IconComponent);
-Vue.component('app-user', UserComponent);
+Vue.component('users-component', UsersComponent);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,7 +33,10 @@ Vue.component('app-user', UserComponent);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.use(router);
+
 const app = new Vue({
     el: '#app',
+    router,
 });
 

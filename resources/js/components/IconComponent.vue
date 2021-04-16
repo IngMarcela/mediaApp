@@ -7,7 +7,7 @@
         name: "IconComponent",
         props: ['img'],
         computed: {
-            cssClasses: function () {
+            cssClasses() {
                 return 'glyphicon glyphicon-'+this.img;
             }
         }
