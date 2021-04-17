@@ -30,7 +30,6 @@
             this.users.forEach((user, index) => {
                 this.$set(user, 'id', index + 1)
             });
-
         },
         data() {
             return  {
@@ -67,11 +66,5 @@
                 this.users.splice(index, 1);
             }
         },
-        created() {
-            this.users.forEach(user => {
-                this.$set(user, 'editing', false);
-            });
-
-        }
     }
 </script>
