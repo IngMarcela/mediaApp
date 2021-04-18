@@ -21,33 +21,16 @@
 </template>
 <script>
     import UserComponent from './UserComponent.vue';
+    import store from '../../store';
     export default {
         name: "UsersComponent",
         components: {
             'app-user' : UserComponent,
         },
-        created() {
-            this.users.forEach((user, index) => {
-                this.$set(user, 'id', index + 1)
-            });
-        },
         data() {
             return  {
                 new_user: '',
-                users: [
-                    {
-                        description: 'Usuario A',
-                        pending: true,
-                    },
-                    {
-                        description: 'Usuario B',
-                        pending: true,
-                    },
-                    {
-                        description: 'Usuario C',
-                        pending: false,
-                    }
-                ]
+                users: store.state.users,
             }
         },
         methods: {

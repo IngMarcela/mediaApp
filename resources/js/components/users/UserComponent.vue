@@ -8,7 +8,7 @@
             </app-icon>
         </a>
 
-        <span class="description">{{user.description}}</span>
+        <span class="description">{{user.title}}</span>
 
 
     </li>
