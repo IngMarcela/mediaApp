@@ -31,9 +31,11 @@
         },
         methods: {
             select(){
-                this.$router.push(
-                    this.isActive ? '/users' : '/users/'+this.user.id
-                );
+                let route = this.isActive
+                ? { name: 'users' }
+                : { name: 'users.detail', params: {id: this.user.id}};
+
+                this.$router.push(route);
             },
             toggleStatus() {
                 this.user.pending = !this.user.pending;

@@ -10,15 +10,17 @@ Vue.use(Router);
 export default new Router({
     routes: [
         {
-            path: '/inicio',
+            path: '/dashboard',
+            name: 'dashboard',
             component: require('./components/ExampleComponent.vue').default,
         },
         {
-            path: '/users',
+            path: '/mis-usuarios',
             component: Users,
             children: [
                 {
                     path: '',
+                    name: 'users',
                     component: {
                         template: '<h2>Selecciona un usuario</h2>',
 
@@ -26,6 +28,7 @@ export default new Router({
                 },
                 {
                     path: ':id',
+                    name: 'users.detail',
                     component: Detail,
                     props: true
                 }
