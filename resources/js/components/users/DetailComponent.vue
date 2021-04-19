@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>Detalle del usuario {{ user.title }}</h1>
+    <div v-if="user">
+        <h1>{{ user.title }}</h1>
         <p>{{ user.description }}</p>
     </div>
 </template>
@@ -24,6 +24,10 @@
         methods: {
             findUser() {
                 this.user = store.findUser(this.id);
+
+                if(! this.user){
+                    this.$router.push('/404');
+                }
             }
         }
     }
