@@ -1,7 +1,7 @@
 <template>
     <li @click="select"
         class="list-group-item"
-        :class="{completed: !user.pending}"
+        :class="{active: isActive, completed: !user.pending}"
     >
         <a @click.stop="toggleStatus" href="#">
             <app-icon :img="user.pending ? 'unchecked' : 'check'">
@@ -9,8 +9,6 @@
         </a>
 
         <span class="description">{{user.title}}</span>
-
-
     </li>
 </template>
 <script>
@@ -25,10 +23,17 @@
         components: {
             'app-icon' : IconComponent,
         },
-        props: ['user', 'index'],
+        props: ['user'],
+        computed: {
+            isActive(){
+                return this.user.id == this.$route.params.id;
+            }
+        },
         methods: {
             select(){
-                this.$router.push('/detail/'+this.user.id);
+                this.$router.push(
+                    this.isActive ? '/users' : '/users/'+this.user.id
+                );
             },
             toggleStatus() {
                 this.user.pending = !this.user.pending;

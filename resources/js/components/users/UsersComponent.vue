@@ -1,22 +1,27 @@
 <template>
-    <div>
-        <ul class="list-group tasks">
-            <app-user
-                v-for="(user, index) in users"
-                :key="user.id"
-                :user="user"
-                :index="index"
-                :users="users"
-                @remove="deleteUser">
-            </app-user>
-        </ul>
+    <div class="row p-4">
+        <div class="col-xs-6 col-md-6">
+            <ul class="list-group tasks">
+                <app-user
+                    v-for="(user, index) in users"
+                    :key="user.id"
+                    :user="user"
+                    :index="index"
+                    :users="users"
+                    @remove="deleteUser">
+                </app-user>
+            </ul>
 
-        <p><a class="nav-link" @click="deleteCompleted" href="#">Eliminar los usuarios tachados</a></p>
+            <p><a class="nav-link" @click="deleteCompleted" href="#">Eliminar los usuarios tachados</a></p>
 
-        <form @submit.prevent="createUser" class="new-task-form">
-            <input v-model="new_user" type="text" class="form-control">
-            <button class="btn btn-primary">Crear tarea</button>
-        </form>
+            <form @submit.prevent="createUser" class="new-task-form">
+                <input v-model="new_user" type="text" class="form-control">
+                <button class="btn btn-primary">Crear tarea</button>
+            </form>
+        </div>
+        <div class="col-xs-6 col-md-6">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 <script>
