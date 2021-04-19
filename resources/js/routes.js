@@ -8,9 +8,10 @@ import ErrorNotFound from './components/errors/NotFound.vue';
 Vue.use(Router);
 
 export default new Router({
+    mode: 'history',
     routes: [
         {
-            path: '/dashboard',
+            path: '/',
             name: 'dashboard',
             component: require('./components/ExampleComponent.vue').default,
         },
