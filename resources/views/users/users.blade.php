@@ -8,7 +8,6 @@
                     <div class="card-header">{{ __('Usuarios') }}</div>
                     <div class="card-body">
                         <div id="app" class="container">
-
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
                                     <router-link class="nav-link" :to="{ name: 'dashboard'}" active-class="active">Dashboard</router-link>
@@ -18,9 +17,7 @@
                                 </li>
                             </ul>
 
-                            <keep-alive>
-                                <router-view></router-view>
-                            </keep-alive>
+                            <router-view></router-view>
                         </div>
                     </div>
                 </div>

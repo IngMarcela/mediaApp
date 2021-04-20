@@ -12,16 +12,13 @@
     </li>
 </template>
 <script>
-    import IconComponent from '../IconComponent.vue';
+    import store from "../../store";
     export default {
         name: "UserComponent",
         data() {
             return {
                 draft: '',
             }
-        },
-        components: {
-            'app-icon' : IconComponent,
         },
         props: ['user'],
         computed: {
@@ -38,7 +35,7 @@
                 this.$router.push(route);
             },
             toggleStatus() {
-                this.user.pending = !this.user.pending;
+                store.toggleStatus(this.user);
             },
         }
     }

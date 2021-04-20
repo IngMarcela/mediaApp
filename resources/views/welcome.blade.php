@@ -98,11 +98,5 @@
             </div>
         </div>
         <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
-
-        <script>
-            var vm = new Vue({
-                el: '#app'
-            });
-        </script>
     </body>
 </html>

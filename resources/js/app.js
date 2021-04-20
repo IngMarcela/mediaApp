@@ -22,10 +22,12 @@ window.EventBus = new Vue();
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import UsersComponent from './components/users/UsersComponent.vue';
+import IconComponent from './components/IconComponent.vue';
 import router from './routes'
 
 Vue.component('example-component', ExampleComponent);
 Vue.component('users-component', UsersComponent);
+Vue.component('app-icon', IconComponent);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

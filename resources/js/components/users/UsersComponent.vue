@@ -1,23 +1,21 @@
 <template>
     <div class="row p-4">
         <div class="col-xs-6 col-md-6">
+            <div class="top">
+                <h2>Usuarios</h2>
+                <router-link :to="{ name: 'users.create' }">Nuevo usuario</router-link>
+            </div>
             <ul class="list-group tasks">
                 <app-user
-                    v-for="(user, index) in users"
+                    v-for="(user) in users"
                     :key="user.id"
                     :user="user"
-                    :index="index"
-                    :users="users"
-                    @remove="deleteUser">
+                    :users="users">
                 </app-user>
             </ul>
 
             <p><a class="nav-link" @click="deleteCompleted" href="#">Eliminar los usuarios tachados</a></p>
 
-            <form @submit.prevent="createUser" class="new-task-form">
-                <input v-model="new_user" type="text" class="form-control">
-                <button class="btn btn-primary">Crear tarea</button>
-            </form>
         </div>
         <div class="col-xs-6 col-md-6">
             <router-view></router-view>
@@ -39,20 +37,17 @@
             }
         },
         methods: {
-            createUser() {
-                this.users.push({
-                    description: this.new_user,
-                    pending: true,
-                    editing: false,
-                });
-                this.new_user = '';
-            },
             deleteCompleted() {
                 this.users = this.users.filter(user => user.pending);
             },
-            deleteUser(index) {
-                this.users.splice(index, 1);
-            }
         },
     }
 </script>
+
+<style lang="scss">
+    .top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+</style>
