@@ -1,32 +1,17 @@
-let users = [
-    {
-        title: 'Usuario A',
-        pending: true,
-    },
-    {
-        title: 'Usuario B',
-        pending: true,
-    },
-    {
-        title: 'Usuario C',
-        pending: false,
-    }
-];
+import Vue from 'vue';
+import users from './users.js';
 
-users.forEach((user, index) => {
-    user.description = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum ' +
-        'has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley' +
-        ' of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also ' +
-        'the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with ' +
-        'the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing' +
-        ' software like Aldus PageMaker including versions of Lorem Ipsum.';
-    user.id = index + 1;
-});
+let state = {
+    users
+}
+
+new Vue({
+    data: state
+})
+
 
 export default {
-    state: {
-        users
-    },
+    state,
     findUser(id) {
         return this.state.users.find(user => user.id == id)
     },
@@ -42,5 +27,14 @@ export default {
         let index = this.state.users.findIndex(user => user.id == id);
 
         this.state.users.splice(index, 1);
+    },
+    updateUser(id, user) {
+        let index = this.state.users.findIndex(user => user.id == id);
+
+        this.state.users.splice(index, 1, user);
+    },
+    deleteCompleteUsers() {
+        this.state.users = this.state.users.filter(user => user.pending);
+    },
     }
-};
+;

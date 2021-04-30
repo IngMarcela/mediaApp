@@ -4,6 +4,7 @@ import Users from './components/users/UsersComponent.vue';
 import Inicio from './components/ExampleComponent.vue';
 import Detail from './components/users/DetailComponent.vue';
 import Create from './components/users/CreateComponent.vue';
+import Edit from './components/users/EditComponent.vue';
 import ErrorNotFound from './components/errors/NotFound.vue';
 
 Vue.use(Router);
@@ -29,15 +30,21 @@ export default new Router({
                     }
                 },
                 {
+                    path: 'create',
+                    name: 'users.create',
+                    component: Create,
+                },
+                {
                     path: ':id',
                     name: 'users.detail',
                     component: Detail,
                     props: true
                 },
                 {
-                    path: 'create',
-                    name: 'users.create',
-                    component: Create,
+                    path: ':id/edit',
+                    name: 'users.edit',
+                    component: Edit,
+                    props: true,
                 }
             ]
         },

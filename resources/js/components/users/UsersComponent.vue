@@ -27,18 +27,15 @@
     import store from '../../store';
     export default {
         name: "UsersComponent",
+        computed: {
+            users: () => store.state.users
+        },
         components: {
             'app-user' : UserComponent,
         },
-        data() {
-            return  {
-                new_user: '',
-                users: store.state.users,
-            }
-        },
         methods: {
             deleteCompleted() {
-                this.users = this.users.filter(user => user.pending);
+                store.deleteCompleteUsers();
             },
         },
     }

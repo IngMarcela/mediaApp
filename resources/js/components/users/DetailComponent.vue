@@ -9,7 +9,7 @@
                 :class="user.pending ? 'btn-default' : 'btn-primary'">
                 <app-icon img="ok"></app-icon> Completar
             </button>
-            <button class="btn btn-default">
+            <button @click="editUser" class="btn btn-default">
                 <app-icon img="edit"></app-icon> Editar
             </button>
             <button @click="deleteUser" class="btn btn-default">
@@ -33,7 +33,7 @@
             this.findUser();
         },
         watch: {
-            id: 'findUser'
+            'id': 'findUser'
         },
         methods: {
             findUser() {
@@ -50,8 +50,14 @@
                 store.deleteUser(this.id);
 
                 this.$router.replace({ name: 'users' });
-            }
-        }
+            },
+            editUser() {
+                this.$router.push({
+                    name: 'users.edit',
+                    params: {id: this.id},
+                })
+            },
+        },
     }
 </script>
 

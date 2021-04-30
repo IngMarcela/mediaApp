@@ -8,6 +8,15 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 window.EventBus = new Vue();
+window.not_found_unless = function (condition) {
+    if(! condition){
+        not_found();
+    }
+};
+window.clone = function (obj) {
+    return JSON.parse(JSON.stringify(obj));
+};
+
 
 /**
  * The following block of code may be used to automatically register your
